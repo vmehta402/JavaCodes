@@ -1,0 +1,53 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int V = s.nextInt();
+		int E = s.nextInt();
+
+		/* Write Your Code Here
+		 * Complete the Rest of the Program
+		 * You have to take input and print the output yourself
+		 */
+       int edges[][] = new int[V][V];
+      for (int i=0;i<E;i++){
+        int fv = s.nextInt();
+        int sv = s.nextInt();
+        edges[fv][sv] = 1;
+        edges[sv][fv] = 1;
+      }
+      int start = s.nextInt();
+      int end = s.nextInt();
+      boolean visited[] = new boolean[edges.length];
+      ArrayList<Integer> arr = getPath(start,end,edges,visited);
+        for(int i=0;i<arr.size();i++){
+          System.out.print(arr.get(i)+" ");
+        }
+	}
+  public static ArrayList<Integer> getPath(int start,int end,int[][] edges,boolean[] visited){
+    if(start == end){
+      ArrayList<Integer> arr = new ArrayList<Integer>();
+      arr.add(end);
+      return arr;
+    }
+   /* if(edges[start][end]==1 ){
+      ArrayList<Integer> arr = new ArrayList<Integer>();
+      arr.add(end);
+      arr.add(start);
+      return arr;
+    }*/
+     visited[start] = true;
+    for(int i=0;i<edges.length;i++){
+      if(edges[start][i]==1 && !visited[i]){
+       ArrayList<Integer> arr= getPath(i,end,edges,visited);
+        if(arr!=null){
+         arr.add(start);
+          return arr;
+        }
+      }
+    }
+    return null;
+  }
+}
