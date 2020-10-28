@@ -6,7 +6,7 @@ public class Solution {
 		
 		while(temp2 != null) {
 			 
-			if(temp1.data.equals(temp2.data)==false) {
+			if(temp1.data != (temp2.data)) {
                 temp1.next = temp2;
 				temp1 = temp1.next;
 				temp2 = temp2.next;
