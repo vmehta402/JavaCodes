@@ -22,9 +22,11 @@ public class Solution {
       int end = s.nextInt();
       boolean visited[] = new boolean[edges.length];
       ArrayList<Integer> arr = getPath(start,end,edges,visited);
+      if(arr!= null){
         for(int i=0;i<arr.size();i++){
           System.out.print(arr.get(i)+" ");
         }
+	}
 	}
   public static ArrayList<Integer> getPath(int start,int end,int[][] edges,boolean[] visited){
     if(start == end){
