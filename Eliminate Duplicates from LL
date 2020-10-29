@@ -16,6 +16,7 @@ public class Solution {
 			else if(temp1.data.equals(temp2.data)) 
 			{  
 				temp2 = temp2.next;
+				
 			}
 			temp1.next = temp2;
 		}
