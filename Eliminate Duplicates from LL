@@ -4,14 +4,17 @@ public class Solution {
 		LinkedListNode<Integer> temp1 = head;
 		LinkedListNode<Integer> temp2 = head.next;
 		
-		while(temp2 != null) {
+		while(temp2 != null) 
+		{
 			 
-			if(temp1.data != (temp2.data)) {
-                temp1.next = temp2;
+			if(temp1.data.equals(temp2.data)==false)
+			{
+                                temp1.next = temp2;
 				temp1 = temp1.next;
 				temp2 = temp2.next;
 			}
-			else if(temp1.data.equals(temp2.data)) {
+			else if(temp1.data.equals(temp2.data)) 
+			{  
 				temp2 = temp2.next;
 			}
 			temp1.next = temp2;
